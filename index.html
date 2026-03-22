@@ -4,56 +4,134 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flores Amarillas Para Mary Cruz🌻</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
 * { box-sizing: border-box; }
+
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(#fdf6e3, #f8e7c9);
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #fff8dc, #f6d365, #fda085);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     overflow: hidden;
 }
+
+/* 🌻 FLORES ENCIMA DE TODO */
 .fondo {
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 9999;
+    pointer-events: none;
 }
+
 .girasol {
     position: absolute;
     animation: caer linear infinite;
+    filter: drop-shadow(0 0 12px gold);
+    z-index: 9999;
 }
+
 @keyframes caer {
     0% { transform: translateY(-100px) rotate(0deg); }
     100% { transform: translateY(110vh) rotate(360deg); }
 }
+
+/* ✨ LUCES MAGICAS */
+.luz {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: gold;
+    border-radius: 50%;
+    box-shadow: 0 0 10px gold, 0 0 20px yellow;
+    animation: flotar 6s linear infinite;
+    z-index: 5;
+    pointer-events: none;
+}
+
+@keyframes flotar {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+/* 💖 CORAZONES */
+.corazon {
+    position: fixed;
+    animation: subir 6s linear infinite;
+    z-index: 9998;
+    pointer-events: none;
+}
+
+@keyframes subir {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+/* ✨ BRILLO */
+.brillo {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: brilloMove 6s infinite;
+    z-index: 3;
+    pointer-events: none;
+}
+
+@keyframes brilloMove {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* 💛 TARJETA */
 .container {
-    width: 500px;
-    height: 680px;
-    background: #ffffff;
-    border-radius: 25px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    width: 520px;
+    height: 700px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    box-shadow: 0 0 40px rgba(255,215,0,0.6);
     position: relative;
     z-index: 2;
-    overflow: visible;
+    overflow: hidden;
 }
+
+/* BORDE BRILLANTE */
+.container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    padding: 2px;
+    background: linear-gradient(45deg, gold, orange, pink, gold);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+}
+
+/* FLORES DECOR */
 .decor-flor {
     position: absolute;
     width: 180px;
     z-index: 5;
     pointer-events: none;
+    filter: drop-shadow(0 0 15px gold);
 }
-.flor1 {
-    top: -60px;
-    left: -60px;
-}
-.flor2 {
-    bottom: -60px;
-    right: -60px;
-}
+
+.flor1 { top: -60px; left: -60px; }
+.flor2 { bottom: -60px; right: -60px; }
+
+/* SLIDES */
 .slide {
     position: absolute;
     width: 100%;
@@ -63,91 +141,100 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 25px;
+    animation: fade 1s ease;
 }
-.slide.active {
-    display: flex;
+
+@keyframes fade {
+    from { opacity: 0; transform: scale(0.95);}
+    to { opacity: 1; transform: scale(1);}
 }
+
+.slide.active { display: flex; }
+
+/* TEXTOS */
 h1 {
-    color: #6b8e23;
-    font-size: 42px;
+    font-family: 'Great Vibes', cursive;
+    color: #ffae00;
+    font-size: 50px;
     text-align: center;
+    text-shadow: 0 0 15px gold;
 }
+
 .slide p {
     text-align: center;
-    color: #5c7a2c;
+    color: #6b4f00;
     font-size: 18px;
 }
+
 .slide img {
     width: 460px;
     max-width: 120%;
     margin-top: 10px;
+    filter: drop-shadow(0 0 15px gold);
 }
+
+/* BOTONES */
 .botones {
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
 }
+
 .botones button {
-    background: #8fbf5a;
+    background: linear-gradient(45deg, #ffd700, #ff8c00);
     color: white;
     border: none;
-    padding: 10px 18px;
-    border-radius: 25px;
+    padding: 10px 20px;
+    border-radius: 30px;
     font-size: 14px;
     cursor: pointer;
-    animation: pulse 2s infinite;
+    box-shadow: 0 0 15px gold;
+    transition: 0.3s;
 }
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
+
+.botones button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px gold;
 }
-.carta-slide {
-    justify-content: center;
-    align-items: center;
-}
+
+/* CARTA */
 .hoja-carta {
     width: 85%;
     max-width: 380px;
     height: 85%;
-    background: #fffef8;
+    background: rgba(255,255,255,0.95);
     padding: 30px 25px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255,215,0,0.5);
     overflow-y: auto;
     font-size: 18px;
     line-height: 1.8;
-    color: #222;
+    color: #333;
     text-align: justify;
 }
-.fecha {
-    text-align: right;
-    margin-bottom: 20px;
-}
-.destinatario {
-    margin-bottom: 15px;
-    text-align: left;
-}
-.hoja-carta p {
-    margin-bottom: 16px;
-}
-.despedida {
-    margin-top: 20px;
-}
-.firma {
-    margin-top: 5px;
-}
+
+.fecha { text-align: right; margin-bottom: 20px; }
+.destinatario { margin-bottom: 15px; text-align: left; }
+.despedida { margin-top: 20px; }
+.firma { margin-top: 5px; }
+
 </style>
 </head>
+
 <body>
+
+<div class="brillo"></div>
 <div class="fondo" id="fondo"></div>
+
 <div class="container">
+
 <img class="decor-flor flor1" src="https://static.vecteezy.com/system/resources/previews/018/726/117/non_2x/3d-yellow-tulips-in-vase-isolated-3d-rendering-png.png">
-<img class="decor-flor flor2" src="https://static.vecteezy.com/system/resources/previews/009/786/192/non_2x/yellow-flowers-watercolor-illustration-png.png"
-<!-- SLIDE 1 -->
+<img class="decor-flor flor2" src="https://static.vecteezy.com/system/resources/previews/009/786/192/non_2x/yellow-flowers-watercolor-illustration-png.png">
+
+<!-- SLIDES -->
 <div class="slide active">
     <h1>Para Mary Cruz 💛</h1>
     <p>Un pequeño detalle para ti...</p>
@@ -156,6 +243,7 @@ h1 {
         <button onclick="nextSlide()">Siguiente ➜</button>
     </div>
 </div>
+
 <div class="slide">
     <p>Aunque la distancia exista,<br>tus flores amarillas siempre llegarán no lo olvidaria 🌻</p>
     <img src="https://static.vecteezy.com/system/resources/previews/018/764/711/non_2x/shiny-yellow-heart-free-png.png" style="width:150px;">
@@ -164,6 +252,7 @@ h1 {
         <button onclick="nextSlide()">→</button>
     </div>
 </div>
+
 <div class="slide">
     <p>Cada flor es un pequeño recordatorio<br>de lo especial que eres 💖</p>
     <img src="https://www.clipartmax.com/png/full/183-1834072_extras-para-mensajes-de-flores-doradas-te-quiero-en-letra-de-carta.png">
@@ -172,6 +261,7 @@ h1 {
         <button onclick="nextSlide()">→</button>
     </div>
 </div>
+
 <div class="slide">
     <p>Tengo algo que decirte jsjsj  ✨</p>
     <img src="https://cdn-icons-png.flaticon.com/512/11705/11705730.png">
@@ -180,10 +270,12 @@ h1 {
         <button onclick="goTo(4)">Abrir carta 💌</button>
     </div>
 </div>
+
 <div class="slide carta-slide">
     <div class="hoja-carta">
         <div class="fecha">21 de septiembre 🌻</div>
         <p class="destinatario"><strong>Querida Mary Cruz</strong></p>
+
 <p>
     Los momentos más bonitos no siempre son los más grandes... 
     pasar unos minutos a tu lado fueron los mas felices, 
@@ -206,38 +298,48 @@ h1 {
     Pero al final se que soy la persona mas dificil de amar, la persona mas complicada, la persona que nunca dejara de amarte en esta y otras vidas
     por que de un dia pal otro mi corazon acepto ser solo tuyo
 </p>
+
         <p class="despedida">Con cariño,</p>
         <p class="firma"><strong>Bismark 💛</strong></p>
     </div>
+
     <div class="botones">
         <button onclick="goTo(0)">🏠 Inicio</button>
         <button onclick="prevSlide()">←</button>
     </div>
 </div>
+
 </div>
+
 <script>
 let current = 0;
 const slides = document.querySelectorAll(".slide");
+
 function showSlide(index) {
     slides[current].classList.remove("active");
     current = index;
     slides[current].classList.add("active");
 }
+
 function nextSlide() {
     let next = current + 1;
     if (next >= slides.length) next = 0;
     showSlide(next);
 }
+
 function prevSlide() {
     let prev = current - 1;
     if (prev < 0) prev = slides.length - 1;
     showSlide(prev);
 }
+
 function goTo(index) {
     showSlide(index);
 }
+
+/* 🌻 FLORES */
 const fondo = document.getElementById("fondo");
-for (let i = 0; i < 25; i++) {
+for (let i = 0; i < 30; i++) {
     let flor = document.createElement("img");
     flor.src = "https://www.pngmart.com/files/4/Sunflower-PNG-HD.png";
     flor.className = "girasol";
@@ -246,6 +348,27 @@ for (let i = 0; i < 25; i++) {
     flor.style.width = (25 + Math.random() * 35) + "px";
     fondo.appendChild(flor);
 }
+
+/* ✨ LUCES */
+for (let i = 0; i < 40; i++) {
+    let luz = document.createElement("div");
+    luz.className = "luz";
+    luz.style.left = Math.random() * 100 + "vw";
+    luz.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(luz);
+}
+
+/* 💖 CORAZONES */
+for (let i = 0; i < 25; i++) {
+    let corazon = document.createElement("div");
+    corazon.className = "corazon";
+    corazon.innerHTML = "💖";
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.animationDuration = (4 + Math.random() * 4) + "s";
+    corazon.style.fontSize = (14 + Math.random() * 20) + "px";
+    document.body.appendChild(corazon);
+}
 </script>
+
 </body>
 </html>
